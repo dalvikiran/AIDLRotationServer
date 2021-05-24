@@ -19,6 +19,8 @@ public class Orientation implements SensorEventListener {
     void onOrientationChanged(float pitch, float roll);
   }
 
+  private static Orientation orientation;
+
   private static final int SENSOR_DELAY_MICROS = 8 * 1000; // 8ms
 
   private final WindowManager mWindowManager;
@@ -31,13 +33,20 @@ public class Orientation implements SensorEventListener {
   private int mLastAccuracy;
   private Listener mListener;
 
-  public Orientation(Context activity) {
+  private Orientation(Context activity) {
 //    mWindowManager = activity.getWindow().getWindowManager();
     mWindowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
     mSensorManager = (SensorManager) activity.getSystemService(Activity.SENSOR_SERVICE);
 
     // Can be null if the sensor hardware is not available
     mRotationSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+  }
+
+  public static Orientation getInstance(Context context){
+    if (orientation == null){
+      orientation = new Orientation( context);
+    }
+    return orientation;
   }
 
   public void startListening(Listener listener) {

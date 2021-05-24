@@ -21,7 +21,7 @@ public class MyRotationService extends Service implements Orientation.Listener {
         super.onCreate();
 
         mRemoteCallbacks = new ArrayList<>();
-        mOrientation = new Orientation( this);
+        mOrientation = Orientation.getInstance(this );
     }
 
     @Override

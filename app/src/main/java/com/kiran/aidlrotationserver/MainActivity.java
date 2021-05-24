@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                     pitchTextView.setText(orientation.getPitch());
                     rollTextView.setText(orientation.getRoll());
 
-                    Log.e("Coordinates", orientation.getPitch());
+//                    Log.e("Coordinates", orientation.getPitch());
                 }
 
                 @Override
