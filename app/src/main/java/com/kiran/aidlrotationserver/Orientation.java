@@ -19,7 +19,7 @@ public class Orientation implements SensorEventListener {
     void onOrientationChanged(float pitch, float roll);
   }
 
-  private static final int SENSOR_DELAY_MICROS = 5000 * 1000; // 8ms
+  private static final int SENSOR_DELAY_MICROS = 8 * 1000; // 8ms
 
   private final WindowManager mWindowManager;
 
